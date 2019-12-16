@@ -73,6 +73,12 @@ const renderRules = {
       </Text>
     );
   },
+  // underline
+  u: (node, children, parent, styles) => {
+    <Text key={node.key} style={styles.u}>
+      {children}
+    </Text>;
+  },
 
   heading1: (node, children, parent, styles) => {
     return (
@@ -179,7 +185,10 @@ const renderRules = {
     if (hasParents(parent, 'ordered_list')) {
       return (
         <View key={node.key} style={styles.listOrderedItem}>
-          <Text style={styles.listOrderedItemIcon}>{node.index + 1}{node.markup}</Text>
+          <Text style={styles.listOrderedItemIcon}>
+            {node.index + 1}
+            {node.markup}
+          </Text>
           <View style={[styles.listItem]}>{children}</View>
         </View>
       );
